@@ -1,8 +1,11 @@
 #ifndef DATABASE_H
 #define DATABASE_H
 
+<<<<<<< HEAD
 #include <cstdlib>
 #include <cstdio>
+=======
+>>>>>>> master
 #include <iostream>
 #include <vector>
 #include <map>

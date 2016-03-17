@@ -70,6 +70,11 @@ class Quiz
 		size_t getPersonalErrors(size_t team, size_t seat);
 		size_t getTimeouts(size_t team);
 		
+<<<<<<< HEAD
+=======
+		std::vector<Player> &getTeam(size_t team);
+		Player &getPlayer(size_t team, size_t seat);
+>>>>>>> master
 		Question getQuestion(size_t index);
 		Question getBonusQuestion();
 		
@@ -81,6 +86,11 @@ class Quiz
 		
 		void substitute(size_t team, size_t seat, int player);
 		void timeout(size_t team);
+<<<<<<< HEAD
+=======
+		
+		void overrideScore(size_t team, int score);
+>>>>>>> master
 };
 
 #endif

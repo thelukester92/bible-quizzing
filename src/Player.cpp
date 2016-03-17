@@ -78,6 +78,15 @@ int Player::getBonusCount() const
 	return bonusCorrectCount + bonusIncorrectCount;
 }
 
+<<<<<<< HEAD
+=======
+void Player::setName(string name)
+{
+	this->name = name;
+	save();
+}
+
+>>>>>>> master
 void Player::addBuzzCorrect()
 {
 	buzzCorrectCount++;
@@ -176,6 +185,10 @@ void Player::save()
 		UPDATE\
 			players\
 		SET\
+<<<<<<< HEAD
+=======
+			name = '%s',\
+>>>>>>> master
 			buzzCorrectCount = %d,\
 			buzzIncorrectCount = %d,\
 			bonusCorrectCount = %d,\
@@ -186,7 +199,11 @@ void Player::save()
 			errOutCount = %d\
 		WHERE\
 			id = %d\
+<<<<<<< HEAD
 	", buzzCorrectCount, buzzIncorrectCount, bonusCorrectCount, bonusIncorrectCount, quizOutCount, foulCount, foulOutCount, errOutCount, id);
+=======
+	", name.c_str(), buzzCorrectCount, buzzIncorrectCount, bonusCorrectCount, bonusIncorrectCount, quizOutCount, foulCount, foulOutCount, errOutCount, id);
+>>>>>>> master
 	db.query(query);
 }
 
@@ -223,3 +240,13 @@ int Player::createPlayer(string name)
 	
 	return INVALID_ID;
 }
+<<<<<<< HEAD
+=======
+
+void Player::deletePlayer()
+{
+	sprintf(query, "DELETE FROM players WHERE id = %d", id);
+	db.query(query);
+	clear();
+}
+>>>>>>> master

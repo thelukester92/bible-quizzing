@@ -8,11 +8,19 @@ const int Quiz::BONUS_SCORE					= 10;
 const int Quiz::QUIZ_OUT_SCORE				= 10;
 
 const int Quiz::ERR_PENALTY					= 10;
+<<<<<<< HEAD
 const int Quiz::FOUL_PENALTY				= 0;
 const int Quiz::ERR_OUT_PENALTY				= 10;
 const int Quiz::FOUL_OUT_PENALTY			= 10;
 
 const int Quiz::FREE_ERRORS					= 2;
+=======
+const int Quiz::FOUL_PENALTY				= 10;
+const int Quiz::ERR_OUT_PENALTY				= 10;
+const int Quiz::FOUL_OUT_PENALTY			= 10;
+
+const int Quiz::FREE_ERRORS					= 3;
+>>>>>>> master
 const int Quiz::LAST_FREE_ERROR_QUESTION	= 16;
 
 const int Quiz::TIMEOUTS					= 2;
@@ -84,6 +92,10 @@ string Quiz::getAlert()
 	{
 		string output = alerts[0];
 		alerts.erase( alerts.begin() );
+<<<<<<< HEAD
+=======
+		return output;
+>>>>>>> master
 	}
 	return "";
 }
@@ -171,6 +183,19 @@ size_t Quiz::getTimeouts(size_t team)
 	return timeouts[team];
 }
 
+<<<<<<< HEAD
+=======
+vector<Player> &Quiz::getTeam(size_t team)
+{
+	return teams[team];
+}
+
+Player &Quiz::getPlayer(size_t team, size_t seat)
+{
+	return teams[team][seat];
+}
+
+>>>>>>> master
 Question Quiz::getQuestion(size_t index)
 {
 	Question q = questions.question(index);
@@ -178,7 +203,11 @@ Question Quiz::getQuestion(size_t index)
 	questionIndex = index;
 	questionTypeAbbv = q.typeAbbv;
 	
+<<<<<<< HEAD
 	if(index == LAST_FREE_ERROR_QUESTION + 1)
+=======
+	if(index == LAST_FREE_ERROR_QUESTION)
+>>>>>>> master
 	{
 		alertNoMoreFreeErrors();
 	}
@@ -249,6 +278,13 @@ void Quiz::answerBonusIncorrectly(size_t team, size_t seat)
 void Quiz::substitute(size_t team, size_t seat, int player)
 {
 	teams[team][seat].loadPlayer(player);
+<<<<<<< HEAD
+=======
+	
+	personalCorrects[team][seat] = 0;
+	personalFouls[team][seat] = 0;
+	personalErrors[team][seat] = 0;
+>>>>>>> master
 }
 
 void Quiz::timeout(size_t team)
@@ -258,3 +294,11 @@ void Quiz::timeout(size_t team)
 		alertNoMoreTimeouts(team);
 	}
 }
+<<<<<<< HEAD
+=======
+
+void Quiz::overrideScore(size_t team, int score)
+{
+	scores[team] = score;
+}
+>>>>>>> master
