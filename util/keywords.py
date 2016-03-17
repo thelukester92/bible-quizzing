@@ -3,7 +3,7 @@
 from __future__ import print_function
 import sqlite3
 
-con = sqlite3.connect("../Documents/Projects/bible-quizzing/resources/bible.sqlite")
+con = sqlite3.connect("../resources/bible.sqlite")
 c = con.cursor()
 
 refs = {}
@@ -44,5 +44,5 @@ for row in rows:
 
 print("Key,Key Length,Count,Reference(s)")
 for key, val in sorted(refs.items(), key=lambda (k, v): (len(v), k)):
-	if any([ x.startswith("5:") for x in refs[key] ]):
-		print("%s,%d,%d,%s" % (key, key.count(" ") + 1, len(val), ";".join(refs[key])))
+# if any([ x.startswith("5:") for x in refs[key] ]):
+	print("%s,%d,%d,%s" % (key, key.count(" ") + 1, len(val), ";".join(refs[key])))
