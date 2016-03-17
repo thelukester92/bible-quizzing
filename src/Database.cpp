@@ -40,10 +40,7 @@ void Database::query(const char *q)
 	if(rc != SQLITE_OK)
 	{
 		printf("An error occurred: %s\n", err);
-<<<<<<< HEAD
 		printf("query: %s\n", q);
-=======
->>>>>>> master
 		sqlite3_free(err);
 		exit(1);
 	}

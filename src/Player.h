@@ -38,10 +38,7 @@ class Player
 		int getBuzzCount() const;
 		int getBonusCount() const;
 		
-<<<<<<< HEAD
-=======
 		void setName(std::string name);
->>>>>>> master
 		void addBuzzCorrect();
 		void addBuzzIncorrect();
 		void addBonusCorrect();
@@ -54,10 +51,7 @@ class Player
 		void clear();
 		void loadPlayer(int id);
 		int createPlayer(std::string name);
-<<<<<<< HEAD
-=======
 		void deletePlayer();
->>>>>>> master
 };
 
 #endif

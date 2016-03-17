@@ -17,13 +17,10 @@ QuizSet::QuizSet(Database &db, string book, vector<int> chapters)
 			{
 				chapterList += ",";
 			}
-<<<<<<< HEAD
+			
 			std::stringstream ss;
 			ss << chapters[i];
 			chapterList += ss.str();
-=======
-			chapterList += to_string(chapters[i]);
->>>>>>> master
 		}
 		
 		addQuestions(QUESTION_COUNT);
@@ -69,40 +66,25 @@ void QuizSet::addQuestions(int questionCount)
 	Random r;
 	
 	// Distribution of the questions
-<<<<<<< HEAD
 	int quote				= 3;
 	int finish				= r.nextInt(3, 5);
 	int multipleAnswer		= r.nextInt(2, 4);
 	int reverseReference	= r.nextInt(2, 4);
 	int interrogative		= questionCount - multipleAnswer - finish - quote - reverseReference;
-
-=======
-	int quote			= 3;
-	int finish			= r.nextInt(3, 5);
-	int multipleAnswer	= r.nextInt(2, 4);
-	int interrogative	= questionCount - multipleAnswer - finish - quote;
 	
->>>>>>> master
 	// Abbreviations for question types
 	string qAbbv	= "'Q'";
 	string fAbbv	= "'F', 'FC'";
 	string mAbbv	= "'MA', 'MC', 'MV'";
 	string iAbbv	= "'I', 'IC', 'IV'";
-<<<<<<< HEAD
 	string rAbbv	= "'R', 'RC'";
-
-=======
 	
->>>>>>> master
 	// Add questions
 	addQuestions(qAbbv, quote);
 	addQuestions(fAbbv, finish);
 	addQuestions(mAbbv, multipleAnswer);
 	addQuestions(iAbbv, interrogative);
-<<<<<<< HEAD
 	addQuestions(rAbbv, reverseReference);
-=======
->>>>>>> master
 	
 	// Shuffle questions
 	indices.resize(questions.size());
@@ -155,12 +137,9 @@ vector<int> QuizSet::getQuestions(string abbvs, int count)
 		output.push_back( atoi( result[index]["id"].c_str() ) );
 		result.erase( result.begin() + index );
 		resultCount--;
-<<<<<<< HEAD
-=======
 		
 		sprintf(query, "INSERT OR REPLACE INTO timestamps (question, time) VALUES (%s, CURRENT_TIMESTAMP)", result[index]["id"].c_str());
 		db.query(query);
->>>>>>> master
 	}
 	
 	return output;
@@ -182,12 +161,8 @@ Question QuizSet::loadQuestion(int id)
 		q.endVerse	= result[0]["endVerse"] != "" ? atoi(result[0]["endVerse"].c_str()) : q.verse;
 		q.question	= result[0]["question"];
 		q.answer	= result[0]["answer"];
-<<<<<<< HEAD
-
-=======
-		
->>>>>>> master
 		q.reference = book + " " + result[0]["chapter"] + ":" + result[0]["verse"];
+		
 		if(q.endVerse > q.verse)
 		{
 			q.reference += " - " + result[0]["chapter"] + ":" + result[0]["endVerse"];
@@ -203,19 +178,16 @@ Question QuizSet::loadQuestion(int id)
 		{
 			q.question = "Quote " + q.reference;
 		}
-<<<<<<< HEAD
-
+		
 		if(q.typeAbbv == "FC" || q.typeAbbv == "MC" || q.typeAbbv == "IC" || q.typeAbbv == "RC")
 		{
 			q.question = "According to " + book + " " + result[0]["chapter"] + ", " + q.question;
 		}
-
+		
 		if(q.typeAbbv == "MV" || q.typeAbbv == "IV")
 		{
 			q.question = "According to " + q.reference + ", " + q.question;
 		}
-=======
->>>>>>> master
 		
 		sprintf(query, "INSERT OR REPLACE INTO timestamps (question, time) VALUES (%d, CURRENT_TIMESTAMP)", id);
 		db.query(query);

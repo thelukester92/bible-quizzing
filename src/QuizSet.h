@@ -1,10 +1,7 @@
 #ifndef QUIZ_SET_H
 #define QUIZ_SET_H
 
-<<<<<<< HEAD
 #include <sstream>
-=======
->>>>>>> master
 #include <string>
 #include <vector>
 #include "Bible.h"

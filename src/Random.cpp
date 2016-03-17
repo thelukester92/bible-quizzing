@@ -3,11 +3,7 @@ using namespace std;
 
 Random::Random() : engine((random_device())())
 {
-<<<<<<< HEAD
-	
-=======
 	engine.seed(time(NULL));
->>>>>>> master
 }
 
 int Random::nextInt(int min, int max)
